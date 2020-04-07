@@ -1,0 +1,2 @@
+rootProject.name='left_rightf'
+include ':app'

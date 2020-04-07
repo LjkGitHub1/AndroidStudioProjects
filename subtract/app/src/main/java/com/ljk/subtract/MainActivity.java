@@ -94,8 +94,8 @@ public class MainActivity extends AppCompatActivity {
             Log.d("ljkk", a+"-"+b+"=" + (a - b));
         }
 
-        //这地方我感觉有点牵强,再用了一个int参数，但实际上只是为了重载，没有用到这个参数
-        Subtract(double c, double d, int e) {
+        //这地方我
+        // Subtract(double c, double d, int e) {
             System.out.println("姓名=" + (c - d));
             Log.d("ljkk", c+"-"+d+"=" + (c - d));
         }

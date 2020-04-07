@@ -1,8 +1,10 @@
-package com.ljk.hello;
+package com.ljk;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.util.Log;
+import android.widget.RelativeLayout;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -11,9 +13,5 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setTitle("1743205000210李金康");
-        Log.d("ljk1", "hello");
-        Log.i("ljk1", "hello");
-        Log.e("ljk1", "hello");
-        Log.w("ljk1", "hello");
     }
 }
