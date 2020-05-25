@@ -47,23 +47,28 @@
         android:layout_height="1242px">
         <TableRow>
             <Button
+                android:id="@+id/s_mi"
                 style="@style/btn_style"
                 android:text="x^y">
             </Button>
             <Button
+                android:id="@+id/s_jiecheng"
                 style="@style/btn_style"
-                android:text="lg"
+                android:text="x!"
                 >
             </Button>
             <Button
+                android:id="@+id/s_sqrt"
                 style="@style/btn_style"
-                android:text="ln">
+                android:text="√">
             </Button>
             <Button
+                android:id="@+id/s_leftc"
                 style="@style/btn_style"
                 android:text="(">
             </Button>
             <Button
+                android:id="@+id/s_rightc"
                 style="@style/btn_style"
                 android:text=")">
             </Button>
@@ -71,8 +76,9 @@
         </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/s_sin"
                 style="@style/btn_style"
-                android:text="sqrt">
+                android:text="sin">
             </Button>
             <Button
                 android:id="@+id/clear"
@@ -101,8 +107,9 @@
         </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/s_cos"
                 style="@style/btn_style"
-                android:text="x!">
+                android:text="cos">
             </Button>
             <Button
                 android:id="@+id/s1"
@@ -129,8 +136,9 @@
         </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/s_tan"
                 style="@style/btn_style"
-                android:text="1/x">
+                android:text="tan">
             </Button>
             <Button
                 android:id="@+id/s4"
@@ -157,6 +165,7 @@
         </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/s_pai"
                 style="@style/btn_style"
                 android:text="π">
             </Button>
