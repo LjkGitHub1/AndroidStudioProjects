@@ -9,9 +9,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.ljk.databinding.ActivityMainBinding;
 
-import java.lang.reflect.Type;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +24,12 @@ public class MainActivity extends AppCompatActivity {
     //初始化
     public String input = "";
     public String input1 = "";
-    public String input2 = "";//加入" "为了拆分数字与符号，实现多位数的运算
     public int str = 0;
     public String res = "0";
+
+    void BigDecimal(String String){
+        BigDecimal(String);
+    }
 
     public ArrayList<String> inputChar = new ArrayList<>(); //用来存放用户的输入 ，每点一次按钮存一次
     public ArrayList<String> sum = new ArrayList<>();  //用来存储多位数字
@@ -41,14 +46,16 @@ public class MainActivity extends AppCompatActivity {
         }
         nibo.add(num);
         sum.clear();
-//        Log.d("ljkljk1", "num:"+nibo);
     }
 
-
+//测试逆波兰式
     public void  count() {
         for (int i=0;i<nibo.size();i++){
-//            Log.d("ljkjk1", "符号栈："+cha.pop());
-            Log.d("ljkjk1",nibo.get(i));
+
+            Log.d("ljkjk12",nibo.get(i));
+        }
+        for (int i=0;i<inputChar.size();i++){
+            Log.i("ljkjk1", "符号栈："+inputChar.get(i));
         }
     }
 
@@ -62,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         map.put("s",3);
         map.put("c",3);
         map.put("t",3);
+        map.put("l",3);
         map.put("√",3);
         map.put("!",3);
         map.put("^",3);
@@ -73,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         //将inputStr转逆波兰
         for(int i=0;i<inputChar.size();i++){
             String nowStr = inputChar.get(i);
-            if(nowStr.equals("+") || nowStr.equals("-") || nowStr.equals("*") || nowStr.equals("/") || nowStr.equals("(")|| nowStr.equals(")") || nowStr.equals("s") || nowStr.equals("c") || nowStr.equals("t") || nowStr.equals("√") || nowStr.equals("!") || nowStr.equals("^")) {
+            if(nowStr.equals("+") || nowStr.equals("-") || nowStr.equals("*") || nowStr.equals("/") || nowStr.equals("(")|| nowStr.equals(")") || nowStr.equals("s") || nowStr.equals("c") || nowStr.equals("t") ||nowStr.equals("l")|| nowStr.equals("√") || nowStr.equals("!") || nowStr.equals("^")) {
                 if (sum.size() != 0) {
                     summation();
                 }// /*入栈之前要先将存储在sum里的数据输出出来*/
@@ -84,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                             nibo.add(cha.pop());
                         }//遇到右括号时，要把括号之间的符号全部pop到逆波兰中，匹配第一个左括号
                         cha.pop();
-                        break;
+                        continue;
                     }
                     cha.push(nowStr);
                 }//符号栈为空，直接入栈
@@ -95,25 +103,11 @@ public class MainActivity extends AppCompatActivity {
                         nibo.add(cha.pop());
 //                        break;
                     }//当前符号优先级小于栈顶，栈顶出栈
-//                        continue;
-//                    cha.push(nowStr);//出栈完成后，当前符号入栈
                 }
                     cha.push(nowStr);
-
-                //右括号
-//                if (nowStr.equals(")")) {
-//                    while (!(cha.peek()).equals("(")) {
-//                        nibo.add(cha.pop());
-//                    }//遇到右括号时，要把括号之间的符号全部pop到逆波兰中，匹配第一个左括号
-//                    cha.pop();
-//                }
-//                    continue;
             }
 //                continue;
         }
-            //数字
-//            else(nowStr.equals("3")||nowStr.equals("1")||nowStr.equals("4")||nowStr.equals("5")||nowStr.equals("6")||nowStr.equals("7")||nowStr.equals("8")||nowStr.equals("9")||nowStr.equals("0")||nowStr.equals("2")){
-//                int num = Integer.valueOf(nowStr) - 48;/*Integer.valueOf(nowChar)输出的是字符的ASCII码值，要将它转化为实际数字*/
             else sum.add(nowStr);//放到sum中 summation计算转换成一个整体
 
         }
@@ -122,79 +116,79 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //计算式子
     public void jisuan () {
         for (int i=0;i<nibo.size();i++){
             String nowChar = nibo.get(i);
-            switch (nowChar) {
-                case "+":
-                case "-":
-                case "*":
-                case "/": {
-                    Double one = ops.pop();
-                    Double two = ops.pop();
-                    if (nowChar.equals("+")) {
-                        ops.push(two + one);
+                switch (nowChar) {
+                    case "+":
+                    case "-":
+                    case "*":
+                    case "/": {
+                        Double one = ops.pop();
+                        Double two = ops.pop();
+                        if (nowChar.equals("+")) {
+                            ops.push(two + one);
+//                            ops.push(one.0add(two));
+                        }
+
+                        if (nowChar.equals("-")) {
+                            ops.push(two - one);
+                        }
+                        if (nowChar.equals("*")) {
+                            ops.push(two * one);
+                        }
+                        if (nowChar.equals("/")) {
+                            if (one==0)
+                                Toast.makeText(MainActivity.this,"除数不能为0！",Toast.LENGTH_LONG).show();
+                            else
+                                ops.push(two / one);
+                        }
+                        break;
                     }
-                    if (nowChar.equals("-")) {
-                        ops.push(two - one);
+                    case "s":
+                    case "c":
+                    case "t":
+                    case "√": {
+//                        BigDecimal one = new BigDecimal(Double.toString(ops.pop()));
+//                        BigDecimal c = new BigDecimal(Double.toString(ops.pop()));
+                        double one = ops.pop();
+                        double c = Math.toRadians(one);
+                        if (nowChar.equals("s")) {
+                            ops.push(Math.sin(c));
+//                            ops.push(Math.sin(c));
+                        }
+                        if (nowChar.equals("c")) {
+                            ops.push(Math.cos(c));
+                        }
+                        if (nowChar.equals("t")) {
+                            ops.push(Math.tan(c));
+                        }
+                        if (nowChar.equals("√")) {
+                                ops.push(Math.sqrt(one));
+                        }
+                        break;
                     }
-                    if (nowChar.equals("*")) {
-                        ops.push(two * one);
+                    case "^": {
+                        double one = ops.pop();
+                        double two = ops.pop();
+                        ops.push(Math.pow(two, one));
+                        break;
                     }
-                    if (nowChar.equals("/")) {
-                        ops.push(two / one);
+                    case "!": {
+                        Double one = ops.pop();
+                        double j = 1.0;
+                        for (int m = 1; m <= one; m++) {
+                            j = j*m;
+                        }
+                        ops.push(j);
+                        break;
                     }
-                    break;
+                    default:
+                        ops.push(Double.parseDouble(nowChar));
+                        break;
                 }
-                case "s":
-                case "c":
-                case "t":
-                case "√": {
-                    double one = ops.pop();
-                    double c = Math.toRadians(one);
-                    if (nowChar.equals("s")) {
-                        ops.push(Math.sin(c));
-                    }
-                    if (nowChar.equals("c")) {
-                        ops.push(Math.cos(c));
-                    }
-                    if (nowChar.equals("t")) {
-                        ops.push(Math.tan(c));
-                    }
-                    if (nowChar.equals("√")) {
-                        ops.push(Math.sqrt(one));
-                    }
-                    break;
-                }
-                case "^": {
-                    Double one = ops.pop();
-                    double two = Double.parseDouble(nibo.get(i + 1));
-                    ops.push(Math.pow(two, one));
-                    i = i + 1;
-                    break;
-                }
-                case "!": {
-                    Double one = ops.pop();
-                    double j = 1.0;
-                    for (int m = 1; m <= one; m++) {
-                        j = j*m;
-                    }
-                    ops.push(j);
-                    break;
-                }
-                case "0":
-                case "1":
-                case "2":
-                case "3":
-                case "4":
-                case "5":
-                case "6":
-                case "7":
-                case "8":
-                case "9":
-                    ops.push(Double.parseDouble(nowChar));
-                    break;
-            }
+
         }
     }
 
@@ -213,24 +207,6 @@ public class MainActivity extends AppCompatActivity {
         //使用viewBinding ，需要在app的gradle中添加viewBinding{enabled = true}
         final ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
-        //获取屏幕信息，因为不会传值到xml中，就暂时没用到
-//        DisplayMetrics outMetrics = new DisplayMetrics();
-//        getWindowManager().getDefaultDisplay().getMetrics(outMetrics);
-//        int widthPixels = outMetrics.widthPixels;
-//        int heightPixels = outMetrics.heightPixels;
-
-
-
-
-
-
-//        String strr = "2 +15 x (8 -6 )";
-//        String[] arr = new String[strr.length()];
-//        for(int i=0;i<(strr.length())/2;i++){
-//            arr[i] = strr.substring(' ');
-//            Log.d("bacj",arr[i]);
-//        }
 
 
         //添加所有的点击事件
@@ -304,10 +280,10 @@ public class MainActivity extends AppCompatActivity {
                         input += ((Button)v).getText().toString();
                         inputChar.add(")");
                         break;
-                    case R.id.s_pai:
-                        binding.top.append("π");
+                    case R.id.s_log:
+                        binding.top.append("log");
                         input += ((Button)v).getText().toString();
-                        inputChar.add("π");
+                        inputChar.add("l");
                         break;
                     case R.id.s_dian:
                         binding.top.append(".");
@@ -397,46 +373,18 @@ public class MainActivity extends AppCompatActivity {
                         if(input.length()>1){
                             input = input.substring(0,input.length()-1);
                             binding.top.setText(input);
+                            Log.d("ljkljk20",inputChar.get(inputChar.size()-1));
+                            inputChar.remove(inputChar.size()-1);
+                            nibo.clear();
+                            tran();
 
-
-                        //删除上一个数字的时候，重新计算之前的式子输出
-//                        try {
-//                            String s = input.substring(input.length()-1,input.length());
-//                            if(("+".equals(s))|("-".equals(s))|("*".equals(s))|("/".equals(s))) {
-//                                res =  engine.eval(input+0).toString();
-//                                String res_l = res.substring(0,res.indexOf("."));
-//                                String res_r = res.substring(res.indexOf(".")+1,res.length());
-//                                if((res_r.length()==1)&&("0".equals(res_r))){
-//                                    res = res_l;
-//                                }
-//                                //提高精度，最多保留5位小数
-//                                else if(res_r.length()>5){
-//                                    BigDecimal resr = new BigDecimal(res).setScale(5, BigDecimal.ROUND_HALF_UP);
-//                                    res = resr.toString();
-//                                }
-//                            }
-//                            res =  engine.eval(input).toString();
-//
-//                            String res_l = res.substring(0,res.indexOf("."));
-//                            String res_r = res.substring(res.indexOf(".")+1,res.length());
-//                            if((res_r.length()==1)&&("0".equals(res_r))){
-//                                res = res_l;
-//                            }
-//                            //提高精度，最多保留5位小数
-//                            else if(res_r.length()>5){
-//                                BigDecimal resr = new BigDecimal(res).setScale(5, BigDecimal.ROUND_HALF_UP);
-//                                res = resr.toString();
-//                            }
-//                        } catch (ScriptException e) {
-//                            e.printStackTrace();
-//                        }
                         //删除输入之后，字体，颜色再变回来，重新点击等号再重新改变
                         binding.top.setTextSize(50);
                         binding.result.setTextSize(40);
                         binding.top.setTextColor(Color.parseColor("#000000"));
                         binding.result.setTextColor(Color.parseColor("#acacac"));
-                        binding.result.setText("");//只输入数字，结果等于本身
-                        binding.result.append("="+res);
+//                        binding.result.setText("");//只输入数字，结果等于本身
+//                        binding.result.append("="+res);
                 }
                         else{
                             binding.top.setText("");
@@ -453,7 +401,6 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.clear:
                         //清除显示
                         inputChar.clear();
-                        nibo.clear();
                         binding.top.setText("");
                         //输出置为初始状态0
                         binding.result.setText("0");
@@ -469,45 +416,32 @@ public class MainActivity extends AppCompatActivity {
                         binding.result.setTextColor(Color.parseColor("#acacac"));
                         break;
                     case R.id.s_deng:
+                        nibo.clear();
                         tran();
                         count();
-                            Log.i("ljk123jk",inputChar.toString());
-                        jisuan();
-                        if (ops.size()==1){binding.result.setText(String.valueOf(ops.pop()));}
-                        //一来就输入等号（通过str是否等于0判断），存到input1中
-//                        if(str==0){
-//                            input1 += ((Button)v).getText().toString();
-//                            binding.result.setText(input1);
-//                            str += 1;
-//                        }
+                        try {
+                            jisuan();
+                        } catch (Exception e){
+                            Toast.makeText(MainActivity.this,"输入有误！",Toast.LENGTH_LONG).show();
+                        }
+//                        if (ops.size()==1){binding.result.setText(String.valueOf(ops.pop()));}
+                        if (ops.size()==1){
+                            String res = String.valueOf(ops.pop());
+                            String res_l = res.substring(0,res.indexOf("."));
+                            String res_r = res.substring(res.indexOf(".")+1,res.length());
+                            if("0".equals(res_r)){
+                                binding.result.setText(res_l);
+                                }
+                            else binding.result.setText(res);
+                        }
 //                        //对于结算结果点击等号的时候，上下文本框交换颜色与字体大小
-//                        else{
-//                            binding.top.setTextSize(40);
-//                            binding.result.setTextSize(50);
-//                            binding.top.setTextColor(Color.parseColor("#acacac"));
-//                            binding.result.setTextColor(Color.parseColor("#000000"));//不可以简写“000” 程序会闪退
-//                        }
-//                        for (int i=0;i<input1.length();i++){
-//                            String c = input1.substring(i, i + 1);
-//                            char cc = input1.charAt(i);
-////                            else {
-////                                if(ops.isEmpty()){
-////                                    ops.push(c);
-////                                }
-////                                getValue(c);
-////                            }
-//                        }
+
+                            binding.top.setTextSize(40);
+                            binding.result.setTextSize(50);
+                            binding.top.setTextColor(Color.parseColor("#acacac"));
+                            binding.result.setTextColor(Color.parseColor("#000000"));//不可以简写“000” 程序会闪退
                         break;
-                    //运算
-                    //将input1拆分成每一小块并存放到数组中
-//                    String[] arr = new String[input1.length()];
-
-
-
                 }
-
-
-
             }
         };
         //加入所有的id
@@ -532,7 +466,7 @@ public class MainActivity extends AppCompatActivity {
         binding.top.setOnClickListener(onClickListener);
         binding.result.setOnClickListener(onClickListener);
         binding.sE.setOnClickListener(onClickListener);
-        binding.sPai.setOnClickListener(onClickListener);
+        binding.sLog.setOnClickListener(onClickListener);
         binding.sTan.setOnClickListener(onClickListener);
         binding.sCos.setOnClickListener(onClickListener);
         binding.sSin.setOnClickListener(onClickListener);

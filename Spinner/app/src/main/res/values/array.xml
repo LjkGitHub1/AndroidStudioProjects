@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="yn">
+        <item>昆明</item>
+        <item>弥勒</item>
+        <item>石林</item>
+        <item>泸西</item>
+        <item>开远</item>
+        <item>蒙自</item>
+        <item>个旧</item>
+        <item>红河</item>
+        <item>屏边</item>
+        <item>建水</item>
+    </string-array>
+    <string-array name="bj">
+        <item>怀柔</item>
+        <item>密云</item>
+        <item>大兴</item>
+        <item>丰台</item>
+        <item>通州</item>
+        <item>昌平</item>
+        <item>房山</item>
+        <item>平谷</item>
+        <item>延庆</item>
+        <item>顺义</item>
+    </string-array>
+    <string-array name="gs">
+        <item>北海</item>
+        <item>防城港</item>
+        <item>桂平</item>
+        <item>河池</item>
+        <item>贺州</item>
+        <item>灵川</item>
+        <item>柳州</item>
+        <item>南宁</item>
+        <item>钦州</item>
+        <item>平南</item>
+    </string-array>
+    <string-array name="gd">
+        <item>东莞</item>
+        <item>佛山</item>
+        <item>广州</item>
+        <item>花都</item>
+        <item>江门</item>
+        <item>揭阳</item>
+        <item>茂名</item>
+        <item>梅州</item>
+        <item>清远</item>
+        <item>韶关</item>
+    </string-array>
+    <string-array name="gz">
+        <item>安顺</item>
+        <item>毕节</item>
+        <item>贵阳</item>
+        <item>兴义</item>
+        <item>凯里</item>
+        <item>六盘水</item>
+        <item>遵义</item>
+        <item>铜仁</item>
+        <item>都匀</item>
+        <item>仁怀</item>
+    </string-array>
+    <string-array name="sc">
+        <item>成都</item>
+        <item>达州</item>
+        <item>德阳</item>
+        <item>广安</item>
+        <item>广元</item>
+        <item>乐山</item>
+        <item>泸州</item>
+        <item>眉山</item>
+        <item>内江</item>
+        <item>南充</item>
+    </string-array>
+    <string-array name="hb">
+        <item>石家庄</item>
+        <item>三河</item>
+        <item>肃宁</item>
+        <item>唐山</item>
+        <item>文安</item>
+        <item>邢台</item>
+        <item>邯郸</item>
+        <item>衡水</item>
+        <item>河间</item>
+        <item>固安</item>
+    </string-array>
+    <string-array name="js">
+        <item>南京</item>
+        <item>南通</item>
+        <item>苏州</item>
+        <item>宿迁</item>
+        <item>无锡</item>
+        <item>泰州</item>
+        <item>徐州</item>
+        <item>盐城</item>
+        <item>吴江</item>
+        <item>吴中</item>
+    </string-array>
+    <string-array name="sd">
+        <item>高密</item>
+        <item>即墨</item>
+        <item>平度</item>
+        <item>济宁</item>
+        <item>青岛</item>
+        <item>威海</item>
+        <item>烟台</item>
+        <item>淄博</item>
+        <item>邹城</item>
+        <item>东营</item>
+    </string-array>
+    <string-array name="sx">
+        <item>大同</item>
+        <item>长治</item>
+        <item>介休</item>
+        <item>晋城</item>
+        <item>太原</item>
+        <item>运城</item>
+        <item>晋中</item>
+        <item>临汾</item>
+        <item>古交</item>
+        <item>吕梁</item>
+    </string-array>
+</resources>

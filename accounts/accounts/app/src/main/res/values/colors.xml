@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="blue">#2e82FF</color>
+    <color name="color_them">#FF01B940</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <!-- NavigationView的菜单项的文本颜色 -->
+    <color name="nav_drawer_menu_text_color">#48B858</color>
+    <color name="me_item_p">#e9e5e5</color>
+    <color name="black_3c">#3C3C3C</color>
+    <color name="black_3c_50">#803C3C3C</color>
+    <color name="black_0E">#0E050B</color>
+    <color name="gray_81">#818181</color>
+    <color name="gray_18">#18BF51</color>
+    <color name="green_1e">#1EC0B8</color>
+    <color name="gray_f0">#F0F0F0</color>
+    <color name="gray_fa">#fafafa</color>
+    <color name="gainsboro">#dcdcdc</color> <!-- 淡灰色 -->
+    <color name="pop_title">#FF3C3C3C</color>
+    <color name="red_text">#FF4D4D</color>
+    <color name="black_text">#3C3C3C</color>
+    <color name="gray_bg_f5">#F5F5F5</color>
+    <color name="bg_color_gray">#FFF5F5F5</color>
+    <color name="text_gray_normal">#585858</color> <!-- 灰色字体 -->
+    <color name="gray_f0f3">#F0F0F3</color>
+    <color name="green_48">#48B858</color>
+    <color name="green_01">#01B940</color>
+    <color name="green_00c341">#00C341</color>
+    <color name="gray_c2">#C2C2C2</color>
+    <color name="blue_43">#4388FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="red_F4">#F44336</color>
+    <color name="red_FE">#FE0000</color>
+    <color name="purple_67">#6700FF</color>
+    <color name="bg_transparent">#cc000000</color>
+    <color name="gray_e5">#E5E5E5</color>
+    <color name="transparent_66">#66000000</color>
+    <color name="gray_e7">#E7E7E7</color>
+    <color name="gray_97">#979797</color>
+    <color name="yellow_fc">#FFCC00</color>
+    <color name="gray_de">#DEDEDE</color>
+    <color name="gray_F8">#F8F8F8</color>
+    <color name="blue_3385">#3385FF</color>
+    <color name="gray_60">#606060</color>
+    <color name="gray_F2">#F2F2F2</color>
+    <color name="gray_9C">#9C9C9C</color>
+    <color name="gray_D8">#D8D8D8</color>
+    <color name="color_fa">#fafafa</color>
+    <color name="mask_color">#66000000</color>
+    <color name="color_96">#969696</color>
+</resources>

@@ -165,9 +165,9 @@
         </TableRow>
         <TableRow>
             <Button
-                android:id="@+id/s_pai"
+                android:id="@+id/s_log"
                 style="@style/btn_style"
-                android:text="π">
+                android:text="log">
             </Button>
             <Button
                 android:id="@+id/s7"
